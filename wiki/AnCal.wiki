@@ -18,3 +18,6 @@ Features
     * set repeating appointments by day, week, month or year
     * set alarms for appointments and tasks
     * ..and many more !
+
+First project page:
+http://vetch.magot.pl
