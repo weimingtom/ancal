@@ -19,5 +19,5 @@ Features
     * set alarms for appointments and tasks
     * ..and many more !
 
-First project page:
+Creator project page:
 http://vetch.magot.pl
