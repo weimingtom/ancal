@@ -56,18 +56,6 @@ public class AlarmService extends Service
 	private int iUpdateDate_minute = 0;
 	
 	
-	// The IAlarmService interface is defined through IDL
-	/*
-	private final IAlarmService.Stub mBinder = new IAlarmService.Stub()
-	{
-	  public int getPid()
-	  {
-	  	return Process.myPid();
-	  }
-	};
-	*/		
-	
-	
 	@Override
 	public void onCreate()
 	{
@@ -111,14 +99,6 @@ public class AlarmService extends Service
 		reminder.RemoveNotify();		
   	handlerUpdateDate.removeCallbacks(handlerUpdateDateTask);		
 	}
-	
-	/*
-	@Override
-	public IBinder getBinder()
-	{
-		return mBinder;
-	}
-	*/
 	
   public synchronized void UpdateTodayDate()
   {

@@ -6,8 +6,8 @@
     <string name="app_authorcopy">Copyright © 2008 - 2010\nAll rights reserved.</string>
     <string name="app_author_www">http://vetch.magot.pl/ancal</string>
     <string name="app_name">AnCal</string>
-    <string name="app_versionstr">version</string>
-    
+    <string name="app_versionstr">version</string>    
+    <string name="TimeZone">TimeZone</string>
     <string name="app_type"></string>
     <string name="app_about">AnCal is personal information management software.</string>    
     <string name="actionNew">New</string>

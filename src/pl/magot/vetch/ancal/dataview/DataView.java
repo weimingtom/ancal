@@ -1,4 +1,4 @@
-
+	
 package pl.magot.vetch.ancal.dataview;
 
 
@@ -74,6 +74,7 @@ public abstract class DataView
 			}
 			SortView();
 		}
+		cr.close();
 		return result;
   }
     

@@ -90,9 +90,13 @@ public class DataTable
 		final String s = "select * from %s where Type = %d and RefID = %d";		
 		String sql = String.format(s, GetTableName(), iType, lRefID);
 		Cursor cr = GetUserDb().GetSQLiteDb().rawQuery(sql, null);
+		
 		//if cursor valid, set first data row as current
 		if ((cr != null) && (cr.getCount() > 0))
 			cr.moveToFirst();
+		else
+			cr.close();
+		
 		return cr;
 	}	
 	

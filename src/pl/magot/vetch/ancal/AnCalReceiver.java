@@ -1,15 +1,13 @@
-
 package pl.magot.vetch.ancal;
-
 
 import pl.magot.vetch.ancal.reminder.AlarmService;
 import android.content.Context;
 import android.content.Intent;
 import android.content.BroadcastReceiver;
 
-
 public class AnCalReceiver extends BroadcastReceiver
 {
+
 	@Override
 	public void onReceive(Context context, Intent intent)
 	{
@@ -17,8 +15,14 @@ public class AnCalReceiver extends BroadcastReceiver
 		{
 			if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED))
 			{
-				context.startService(new Intent(context, AlarmService.class));
+				try
+				{
+					context.startService(new Intent(context, AlarmService.class));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
+
 }
