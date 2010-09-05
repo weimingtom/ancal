@@ -21,7 +21,9 @@ import android.widget.*;
 import android.widget.LinearLayout.*;
 import android.content.Intent;
 import android.os.*;
+import android.provider.Settings;
 import android.content.*;
+import android.content.res.Configuration;
 
 
 //Main activity
@@ -43,7 +45,8 @@ public class AnCal extends CommonActivity
   private final int miNewNote = Menu.FIRST + 2;
   private final int miShowAllTasks = Menu.FIRST + 3;
   private final int miOptions = Menu.FIRST + 4;
-  private final int miAbout = Menu.FIRST + 5;
+  private final int mTimeZone = Menu.FIRST + 5;
+  private final int miAbout = Menu.FIRST + 6;
 	
 	//views
   private ScrollView scrollViewAgenda = null;
@@ -165,7 +168,10 @@ public class AnCal extends CommonActivity
       mi.setShortcut('5', 'o');
       mi.setIcon(R.drawable.menuiconprefs);
       
-      mi = menu.add(4, miAbout, 5, R.string.actionAbout);
+      mi = menu.add(4, mTimeZone, 5, R.string.TimeZone);
+      mi.setIcon(R.drawable.menuiconabout);
+      
+      mi = menu.add(4, miAbout, 6, R.string.actionAbout);
       mi.setIcon(R.drawable.menuiconabout);
       
       return true;
@@ -207,6 +213,9 @@ public class AnCal extends CommonActivity
 	      }
 	      case miOptions:
 	      	openActOptions();
+	      	break;
+	      case mTimeZone:
+	      	showTimeZone();
 	      	break;
 	      case miAbout:
 	      	openActViewAbout();
@@ -810,6 +819,17 @@ public class AnCal extends CommonActivity
 	{
 		
 	}
+	
+	 public void showTimeZone()
+	  {
+	         //bundleOtherDataStartup.clear();
+	         //OpenActivity(0, "android.intent.action.AnCal.ACTION_MODE_VIEW_TIME_ZONE");
+	         Configuration userConfig = new Configuration();
+	    Settings.System.getConfiguration( getContentResolver(), userConfig );
+	    Calendar cal = Calendar.getInstance( userConfig.locale);
+	    TimeZone tz = cal.getTimeZone();
+	    Toast.makeText(this, tz.getDisplayName(true, TimeZone.LONG)+" ("+tz.getDisplayName(true, TimeZone.SHORT)+")", Toast.LENGTH_LONG).show();
+	  }
 	
 }
 

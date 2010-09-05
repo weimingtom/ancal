@@ -188,7 +188,16 @@ public class Database
 	
 	public Result TablesCreationResult()
 	{
-		return resultDbTablesCreated;				
+		return resultDbTablesCreated;
+		
 	}
-			
+		
+	public void finalize(){
+		
+		db.close();		
+		
+	}
+	
+	
+	
 }

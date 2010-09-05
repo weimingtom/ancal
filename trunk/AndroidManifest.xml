@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="pl.magot.vetch.ancal"		
-		android:versionCode="31" android:versionName="1.5">
+		android:versionCode="32" android:versionName="1.6">
 		
 		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 				
@@ -99,4 +99,6 @@
         </activity>        
         
     </application>
+<uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="4"></uses-sdk>
 </manifest>
