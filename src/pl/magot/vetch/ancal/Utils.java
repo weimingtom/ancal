@@ -240,4 +240,17 @@ public class Utils
 		view.startAnimation(anim);
   }  
 	
+	/**
+	 * @param cal
+	 * @return an ISO 8601-compliant date able to correctly calculate week numbers...or at least
+	 * provide a place to correctly implement it later if it is true that week numbers are locale-specific
+	 */
+  public static Calendar getIso8601Calendar(Calendar cal) {
+  	Calendar result = Calendar.getInstance();
+  	result.setTimeInMillis(cal.getTimeInMillis());
+  	result.clear(Calendar.WEEK_OF_YEAR);
+  	result.setMinimalDaysInFirstWeek(4);
+  	result.setFirstDayOfWeek(Calendar.MONDAY);
+  	return result;
+  }
 }

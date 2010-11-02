@@ -50,8 +50,10 @@ public class ViewMonthWeekItem extends View
 	private int iWeekNrMarginWidth = 0;
 	private int iWeekDayWidth = 0;
 	private boolean bTouchedDown = false;
-	private Calendar calWeekStart = Calendar.getInstance();	
-	
+	private Calendar calWeekStart = Calendar.getInstance();
+
+	private int dayOfWeek;
+		
 	//methods
 	public ViewMonthWeekItem(Context context, int iHeaderHeight, int iWeekNrMarginWidth)
 	{
@@ -60,7 +62,7 @@ public class ViewMonthWeekItem extends View
 		this.iWeekNrMarginWidth = iWeekNrMarginWidth;		
 		mpt = new Paint();
 		setFocusable(true);
-		setLayoutParams(lparamsItem);		
+		setLayoutParams(lparamsItem);
 	}
 	
 	public static int GetSpaceWidthWeekNr(Paint mpt)
@@ -123,7 +125,7 @@ public class ViewMonthWeekItem extends View
 	{
 		this.bEnableDaysHeader = bEnableDaysHeader;
 		this.calWeekStart.setTimeInMillis(dateStartDay.getTimeInMillis());
-		this.sWeekNr = Integer.toString(calWeekStart.get(Calendar.WEEK_OF_YEAR));
+		this.sWeekNr = Integer.toString(Utils.getIso8601Calendar(calWeekStart).get(Calendar.WEEK_OF_YEAR));
 		
 		final int iTodayDateYear = dateToday.get(Calendar.YEAR);
 		final int iTodayDateMonth = dateToday.get(Calendar.MONTH);
@@ -364,6 +366,7 @@ public class ViewMonthWeekItem extends View
   		bHandled = true;
   		bTouchedDown = true;
   		invalidate();
+  		this.dayOfWeek = calculateDayOfWeek(event.getRawX());
   		Utils.startAlphaAnimIn(ViewMonthWeekItem.this);
   	}
   	if (event.getAction() == MotionEvent.ACTION_CANCEL)
@@ -381,5 +384,18 @@ public class ViewMonthWeekItem extends View
   	}
   	return bHandled;
   }
-  
+
+	/**
+   * @param rawX - the X-axis screen tap offset
+   * @return - an index between 0 and 6, indicating which week day was selected
+   */
+  private int calculateDayOfWeek(Float rawX) {
+		int result = (int) ((rawX - iWeekNrMarginWidth -2 * iMargin) / iWeekDayWidth);
+		return result;
+  }
+
+  public int getDayOfWeek()
+	{
+		return dayOfWeek;
+	}
 }

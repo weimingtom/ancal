@@ -539,7 +539,7 @@ public class AnCal extends CommonActivity
   
   public void SetWeekNrText(Calendar date)
   {
-  	int iNr = date.get(Calendar.WEEK_OF_YEAR);
+  	int iNr = Utils.getIso8601Calendar(date).get(Calendar.WEEK_OF_YEAR);
   	labWeekNr.setText(Integer.toString(iNr));
   }
 
