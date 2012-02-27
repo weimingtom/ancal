@@ -3,7 +3,7 @@
     <string name="app_website">www:</string>
     <string name="app_email">email:</string>
     <string name="app_author">Piotr Zagawa</string>
-    <string name="app_authorcopy">Copyright © 2008 - 2010\nAll rights reserved.</string>
+    <string name="app_authorcopy">http://code.google.com/p/ancal</string>
     <string name="app_author_www">http://vetch.magot.pl/ancal</string>
     <string name="app_name">AnCal</string>
     <string name="app_versionstr">version</string>    
